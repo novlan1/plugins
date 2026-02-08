@@ -44,25 +44,21 @@ export default defineConfig({
 
 ## 3. 类型
 
-```ts
-interface FileConfig {
-  /** 文件匹配规则，可以是字符串或正则表达式 */
-  file: RegExp | string;
-  /** 需要保留的选择器列表（图标名称） */
-  include?: string[];
-  /** 需要移除的选择器列表（图标名称） */
-  exclude?: string[];
-  /** 选择器匹配模式，只处理匹配该模式的选择器 */
-  selectorPattern?: RegExp;
-}
+### Options
 
-interface Options {
-  /** 配置列表 */
-  list: FileConfig[];
-  /** 是否开启调试模式 */
-  debug?: boolean;
-}
-```
+| 属性 | 类型 | 是否必填 | 说明 |
+| --- | --- | --- | --- |
+| `list` | `FileConfig[]` | 是 | 配置列表 |
+| `debug` | `boolean` | 否 | 是否开启调试模式 |
+
+### FileConfig
+
+| 属性 | 类型 | 是否必填 | 说明 |
+| --- | --- | --- | --- |
+| `file` | `RegExp \| string` | 是 | 文件匹配规则，可以是字符串或正则表达式 |
+| `include` | `string[]` | 否 | 需要保留的选择器列表（图标名称） |
+| `exclude` | `string[]` | 否 | 需要移除的选择器列表（图标名称） |
+| `selectorPattern` | `RegExp` | 否 | 选择器匹配模式，只处理匹配该模式的选择器 |
 
 ## 4. 更新日志
 

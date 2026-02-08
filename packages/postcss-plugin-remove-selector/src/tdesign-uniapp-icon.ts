@@ -2,7 +2,7 @@
  * TDesign UniApp 图标减包配置
  *
  * 使用说明：
- * 1. 在 USED_ICONS 数组中配置项目中实际使用的图标名称
+ * 1. 在 TDESIGN_USED_ICONS 数组中配置项目中实际使用的图标名称
  * 2. 插件只会处理 .t-icon-xxx:before 这类图标选择器
  * 3. 其他基础样式（如 @font-face、.t-icon 等）会自动保留
  *
@@ -14,7 +14,7 @@
  * 项目中实际使用的图标列表
  * 根据 src 目录下的 .vue 文件分析得出
  */
-const USED_ICONS = [
+export const TDESIGN_USED_ICONS = [
   // custom-tab-bar.vue
   'home',
   'chat',
@@ -90,7 +90,7 @@ export const TDESIGN_ICON_REMOVE_SELECTOR = {
       // 只处理 .t-icon-xxx:before 这类图标选择器，其他样式自动保留
       selectorPattern: /^\.t-icon-[\w-]+:before$/,
       // 保留的图标名称列表
-      include: USED_ICONS,
+      include: TDESIGN_USED_ICONS,
       exclude: [],
     },
   ],
