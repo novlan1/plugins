@@ -123,12 +123,16 @@ export default defineConfig({
 
 ## 4. 更新日志
 
-[点此查看](./CHANGELOG.md)
+[点此查看](https://novlan1.github.io/plugins/changelog/postcss-plugin-remove-selector.html)
 
 ## 5. 效果
 
-使用此插件，可使小程序大小减少`15KB`。
+以 [tdesign-uniapp-starter](https://github.com/TDesignOteam/tdesign-uniapp-starter) 为例，使用此插件，可使小程序大小减少`138KB`，约`95.8%`。
 
-<img src="https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/article/2025/3/own_mike_5110452c29f3a22c3a.png" width="600">
+使用前：
 
-<img src="https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/article/2025/3/own_mike_d5703094c04270a6d5.png" width="600">
+<img src="https://cdn.uwayfly.com/article/2026/2/own_mike_4w2yXDz3tMcaJ2nx.png" width="600">
+
+使用后：
+
+<img src="https://cdn.uwayfly.com/article/2026/2/own_mike_dsdB5TmAaedmkPr5.png" width="600">

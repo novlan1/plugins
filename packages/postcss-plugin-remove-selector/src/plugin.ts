@@ -1,9 +1,9 @@
 import { shouldHandleFile, shouldRemoveRule } from './helper';
 import { PRESETS } from './presets';
 
-import type { Options, SimpleOptions } from './types';
+import type { Options, SimpleOptions, PostCSSRoot, PostCSSResult, PostCSSRule, PluginCreator } from './types';
 
-export type { Options, SimpleOptions, FileConfig, ShouldRemoveRuleOptions, PresetMode, Preset } from './types';
+export type { Options, SimpleOptions, FileConfig, ShouldRemoveRuleOptions, PresetMode, Preset, PostCSSRoot, PostCSSResult, PostCSSRule, PostCSSPlugin, PluginCreator } from './types';
 export { shouldHandleFile, shouldRemoveRule, extractIconName } from './helper';
 
 const PLUGIN_NAME = 'postcss-plugin-remove-selector';
@@ -76,7 +76,7 @@ function normalizeOptions(opts: Options | SimpleOptions): Options {
 /**
  * 核心处理逻辑，PostCSS 7 / 8 共用
  */
-function processRoot(root: any, result: any, opts: Options) {
+function processRoot(root: PostCSSRoot, result: PostCSSResult, opts: Options) {
   const { list = [], debug = false } = opts;
   const fileName = result.opts?.from || '';
   const found = shouldHandleFile(list, fileName);
@@ -97,7 +97,7 @@ function processRoot(root: any, result: any, opts: Options) {
 
   let removedCount = 0;
 
-  root.walkRules((rule: any) => {
+  root.walkRules((rule: PostCSSRule) => {
     if (shouldRemoveRule({
       selectorPattern,
       used: mergedUsed,
@@ -129,11 +129,11 @@ function processRoot(root: any, result: any, opts: Options) {
  * @param opts 配置项
  * @returns PostCSS 插件
  */
-const postcssPluginRemoveSelector: any = (opts: Options | SimpleOptions = { list: [] }) => {
+const postcssPluginRemoveSelector: PluginCreator = (opts: Options | SimpleOptions = { list: [] }) => {
   const normalizedOpts = normalizeOptions(opts);
   return {
     postcssPlugin: PLUGIN_NAME,
-    Once(root: any, { result }: any) {
+    Once(root: PostCSSRoot, { result }: { result: PostCSSResult }) {
       processRoot(root, result, normalizedOpts);
     },
   };
@@ -149,13 +149,13 @@ try {
   if (postcss && typeof postcss.plugin === 'function') {
     postcssPluginRemoveSelector.postcss7 = postcss.plugin(
       PLUGIN_NAME,
-      (opts: Options | SimpleOptions = { list: [] }) => (root: any, result: any) => {
+      (opts: Options | SimpleOptions = { list: [] }) => (root: PostCSSRoot, result: PostCSSResult) => {
         const normalizedOpts = normalizeOptions(opts);
         processRoot(root, result, normalizedOpts);
       },
     );
   }
-} catch (e) {
+} catch {
   // postcss 未安装或不支持 postcss.plugin，忽略
 }
 

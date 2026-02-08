@@ -82,4 +82,40 @@ export interface ShouldRemoveRuleOptions {
   selector: string;
 }
 
+/**
+ * PostCSS 兼容类型定义
+ * 兼容 PostCSS 7 和 PostCSS 8，避免直接依赖 postcss 包的类型
+ */
+
+/** PostCSS Rule 节点（兼容 v7/v8） */
+export interface PostCSSRule {
+  selector: string;
+  remove(): void;
+}
+
+/** PostCSS Root 节点（兼容 v7/v8） */
+export interface PostCSSRoot {
+  walkRules(callback: (rule: PostCSSRule) => void): void;
+}
+
+/** PostCSS Result 对象（兼容 v7/v8） */
+export interface PostCSSResult {
+  opts?: {
+    from?: string;
+  };
+}
+
+/** PostCSS 8 插件对象 */
+export interface PostCSSPlugin {
+  postcssPlugin: string;
+  Once(root: PostCSSRoot, helpers: { result: PostCSSResult }): void;
+}
+
+/** PostCSS 插件创建函数（含 postcss 标记和 postcss7 兼容） */
+export interface PluginCreator {
+  (opts?: Options | SimpleOptions): PostCSSPlugin;
+  postcss: true;
+  postcss7?: (opts?: Options | SimpleOptions) => (root: PostCSSRoot, result: PostCSSResult) => void;
+}
+
 
