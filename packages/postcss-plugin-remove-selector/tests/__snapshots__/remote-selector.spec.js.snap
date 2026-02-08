@@ -2,19 +2,19 @@
 
 exports[`empty options 1`] = `
 "
-.press-icon-plus-arrow-down:before {
+.t-icon-arrow-down:before {
   content: 'e65e';
 }
 
-.press-icon-plus-arrow-up:before {
+.t-icon-arrow-up:before {
   content: 'e65f';
 }
 
-.press-icon-plus-invitation:before {
+.t-icon-invitation:before {
   content: 'e6d6';
 }
 
-.press-icon-plus-like-o:before {
+.t-icon-like-o:before {
   content: 'e6d7';
 }
 
@@ -26,11 +26,11 @@ exports[`empty options 1`] = `
 
 exports[`exclude 1`] = `
 "
-.press-icon-plus-arrow-down:before {
+.t-icon-arrow-down:before {
   content: 'e65e';
 }
 
-.press-icon-plus-arrow-up:before {
+.t-icon-arrow-up:before {
   content: 'e65f';
 }
 
@@ -42,23 +42,51 @@ exports[`exclude 1`] = `
 
 exports[`file is regexp 1`] = `
 "
-.press-icon-plus-arrow-down:before {
+.t-icon-arrow-down:before {
   content: 'e65e';
 }
 
-.press-icon-plus-arrow-up:before {
+.t-icon-arrow-up:before {
   content: 'e65f';
+}
+
+#someId {
+  color: red;
+}
+"
+`;
+
+exports[`file not matched - should not modify css 1`] = `
+"
+.t-icon-arrow-down:before {
+  content: 'e65e';
+}
+
+.t-icon-arrow-up:before {
+  content: 'e65f';
+}
+
+.t-icon-invitation:before {
+  content: 'e6d6';
+}
+
+.t-icon-like-o:before {
+  content: 'e6d7';
+}
+
+#someId {
+  color: red;
 }
 "
 `;
 
 exports[`include & exclude 1`] = `
 "
-.press-icon-plus-arrow-down:before {
+.t-icon-arrow-down:before {
   content: 'e65e';
 }
 
-.press-icon-plus-arrow-up:before {
+.t-icon-arrow-up:before {
   content: 'e65f';
 }
 
@@ -70,12 +98,40 @@ exports[`include & exclude 1`] = `
 
 exports[`include 1`] = `
 "
-.press-icon-plus-arrow-down:before {
+.t-icon-arrow-down:before {
   content: 'e65e';
 }
 
-.press-icon-plus-arrow-up:before {
+.t-icon-arrow-up:before {
   content: 'e65f';
+}
+
+#someId {
+  color: red;
+}
+"
+`;
+
+exports[`no selectorPattern - should not remove non-icon rules 1`] = `
+"
+.t-icon-arrow-down:before {
+  content: 'e65e';
+}
+"
+`;
+
+exports[`postcss7 fallback - should work with postcss.plugin style 1`] = `
+"
+.t-icon-arrow-down:before {
+  content: 'e65e';
+}
+
+.t-icon-arrow-up:before {
+  content: 'e65f';
+}
+
+#someId {
+  color: red;
 }
 "
 `;

@@ -115,3 +115,27 @@ test('file not matched - should not modify css', async () => {
   expect(result.css).toMatchSnapshot();
   expect(result.warnings()).toHaveLength(0);
 });
+
+
+test('postcss7 fallback - should work with postcss.plugin style', async () => {
+  // 当 postcss.plugin 可用时，postcss7 属性应该被设置
+  if (postCssPluginRemoveSelector.postcss7) {
+    const plugin = postCssPluginRemoveSelector.postcss7({
+      list: [{
+        file: 'abc',
+        exclude: ['invitation', 'like-o'],
+        selectorPattern: /^\.t-icon-[\w-]+:before$/,
+      }],
+    });
+    const result = await postcss([plugin]).process(input, { from: 'abc' });
+
+    // eslint-disable-next-line jest/no-conditional-expect
+    expect(result.css).toMatchSnapshot();
+    // eslint-disable-next-line jest/no-conditional-expect
+    expect(result.warnings()).toHaveLength(0);
+  } else {
+    // 如果当前环境是 PostCSS 8，postcss.plugin 不存在，跳过
+    // eslint-disable-next-line jest/no-conditional-expect
+    expect(true).toBe(true);
+  }
+});

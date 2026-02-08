@@ -1,5 +1,3 @@
-import type { Root, Result } from 'postcss';
-
 /**
  * 单个文件匹配配置
  */
@@ -38,10 +36,4 @@ export interface ShouldRemoveRuleOptions {
   selector: string;
 }
 
-/**
- * PostCSS 插件返回类型
- */
-export interface PostCSSPlugin {
-  postcssPlugin: string;
-  Once(root: Root, helpers: { result: Result }): void;
-}
+
