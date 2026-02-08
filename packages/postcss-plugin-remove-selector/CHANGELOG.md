@@ -1,3 +1,9 @@
+## <small>0.1.4 (2026-02-08)</small>
+
+* feat(remove-selector): add tdesignUsedIcon exports ([e9fbfc3](https://github.com/novlan1/plugins/commit/e9fbfc3))
+
+
+
 ## <small>0.1.3 (2026-02-08)</small>
 
 * feat(remove-selector): support postcss@7 ([615fbd8](https://github.com/novlan1/plugins/commit/615fbd8))
