@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@dcloudio/uni-cli-shared": "3.0.0-4020420240722002",
-    "@plugin-light/shared": "workspace:^",
+    "@plugin-light/shared": "latest",
     "t-comm": "^3.0.22"
   }
 }

@@ -22,9 +22,9 @@
     "release": "node ../../script/monorepo/release $PWD"
   },
   "dependencies": {
-    "@plugin-light/shared": "workspace:^",
-    "@plugin-light/shared-vue2": "workspace:^",
-    "@plugin-light/webpack-plugin-fix-npm-package": "workspace:^",
+    "@plugin-light/shared": "latest",
+    "@plugin-light/shared-vue2": "latest",
+    "@plugin-light/webpack-plugin-fix-npm-package": "latest",
     "t-comm": "^3.0.22"
   },
   "devDependencies": {
