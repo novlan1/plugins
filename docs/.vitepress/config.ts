@@ -14,7 +14,7 @@ export default withMermaid({
 
   lastUpdated: true,
   cleanUrls: false,
-  base: process.env.PUBLISH_PATH || '/plugin-light/',
+  base: process.env.PUBLISH_PATH || '/plugins/',
 
   head: [
     ['link', { rel: 'icon', href: 'https://mike-1255355338.cos.ap-guangzhou.myqcloud.com/article/2023/8/own_mike_0d0107312bfd164de4.ico' }],

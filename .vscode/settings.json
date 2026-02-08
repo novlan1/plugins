@@ -30,7 +30,9 @@
     "msdk",
     "wzyd",
     "ebus",
-    "pixui"
+    "pixui",
+    "novlan",
+    "uniapp"
   ],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "always",

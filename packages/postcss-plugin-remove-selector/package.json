@@ -1,13 +1,13 @@
 {
-  "name": "@plugin-light/postcss-plugin-remove-selector",
-  "version": "1.0.0",
-  "homepage": "https://novlan1.github.io/docs/plugin-light/zh/postcss-plugin-remove-selector.html",
+  "name": "@novlan/postcss-plugin-remove-selector",
+  "version": "0.1.0",
+  "homepage": "https://novlan1.github.io/plugins/zh/postcss-plugin-remove-selector.html",
   "bugs": {
-    "url": "https://github.com/novlan1/plugin-light/issues"
+    "url": "https://github.com/novlan1/plugins/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/novlan1/plugin-light"
+    "url": "https://github.com/novlan1/plugins"
   },
   "license": "MIT",
   "author": "novlan1",

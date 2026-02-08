@@ -1,12 +1,12 @@
 # 移除选择器
 
 <p align="center">
-  <img src="https://img.shields.io/npm/dw/@plugin-light/postcss-plugin-remove-selector">
-  <img src="https://img.shields.io/npm/unpacked-size/@plugin-light/postcss-plugin-remove-selector">
-  <img src="https://img.shields.io/npm/v/@plugin-light/postcss-plugin-remove-selector">
-  <img src="https://img.shields.io/npm/l/@plugin-light/postcss-plugin-remove-selector">
-  <img src="https://img.shields.io/github/last-commit/novlan1/plugin-light">
-  <img src="https://img.shields.io/github/created-at/novlan1/plugin-light">
+  <img src="https://img.shields.io/npm/dw/@novlan/postcss-plugin-remove-selector">
+  <img src="https://img.shields.io/npm/unpacked-size/@novlan/postcss-plugin-remove-selector">
+  <img src="https://img.shields.io/npm/v/@novlan/postcss-plugin-remove-selector">
+  <img src="https://img.shields.io/npm/l/@novlan/postcss-plugin-remove-selector">
+  <img src="https://img.shields.io/github/last-commit/novlan1/plugins">
+  <img src="https://img.shields.io/github/created-at/novlan1/plugins">
 </p>
 
 可用于移除三方库中的不需要的样式，从而减小包体积。
@@ -20,48 +20,23 @@
 安装
 
 ```bash
-pnpm add @plugin-light/postcss-plugin-remove-selector -D
+pnpm add @novlan/postcss-plugin-remove-selector -D
 ```
 
-`postcss.config.js` 中新增配置：
-
-```ts
-module.exports = {
-  require('@plugin-light/postcss-plugin-remove-selector/lib/index')({
-    list: [{
-      file: new RegExp('press-ui/press-icon-plus/css/icon.scss'),
-      include: [
-        'arrow',
-        'arrow-left',
-        'arrow-right',
-        'arrow-up',
-        'arrow-down',
-        'success',
-        'cross',
-        'plus',
-        'minus',
-        'fail',
-        'circle',
-      ].map(item => `.press-icon-plus-${item}:before`),
-    }],
-  }),
-}
-```
-
-也可以在 `vite.config.ts` 中使用：
+在 `vite.config.ts` 中使用：
 
 ```ts
 import { defineConfig } from 'vite';
-import removeSelector from '@plugin-light/postcss-plugin-remove-selector';
+import { postCssPluginRemoveSelector } from '@novlan/postcss-plugin-remove-selector';
 import {
-  PRESS_ICON_PLUS_REMOVE_SELECTOR 
-} from '@plugin-light/postcss-plugin-remove-selector/lib/press-ui-icon-plus';
+  TDESIGN_ICON_REMOVE_SELECTOR
+} from '@novlan/postcss-plugin-remove-selector/lib/tdesign-uniapp-icon';
 
 
 export default defineConfig({
   css: {
     postcss: {
-      plugins: [removeSelector(PRESS_ICON_PLUS_REMOVE_SELECTOR)],
+      plugins: [postCssPluginRemoveSelector(TDESIGN_ICON_REMOVE_SELECTOR)],
     },
   },
 });
@@ -70,12 +45,22 @@ export default defineConfig({
 ## 3. 类型
 
 ```ts
+interface FileConfig {
+  /** 文件匹配规则，可以是字符串或正则表达式 */
+  file: RegExp | string;
+  /** 需要保留的选择器列表（图标名称） */
+  include?: string[];
+  /** 需要移除的选择器列表（图标名称） */
+  exclude?: string[];
+  /** 选择器匹配模式，只处理匹配该模式的选择器 */
+  selectorPattern?: RegExp;
+}
+
 interface Options {
-  list: Array<{
-    file: RegExp | string;
-    exclude?: string[];
-    include?: string[];
-  }>;
+  /** 配置列表 */
+  list: FileConfig[];
+  /** 是否开启调试模式 */
+  debug?: boolean;
 }
 ```
 
