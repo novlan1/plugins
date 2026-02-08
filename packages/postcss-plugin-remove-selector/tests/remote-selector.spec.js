@@ -1,21 +1,21 @@
 const postcss = require('postcss');
 
-const plugin = require('../src/index');
+const { postCssPluginRemoveSelector } = require('../src/index');
 
 const input = `
-.press-icon-plus-arrow-down:before {
+.t-icon-arrow-down:before {
   content: 'e65e';
 }
 
-.press-icon-plus-arrow-up:before {
+.t-icon-arrow-up:before {
   content: 'e65f';
 }
 
-.press-icon-plus-invitation:before {
+.t-icon-invitation:before {
   content: 'e6d6';
 }
 
-.press-icon-plus-like-o:before {
+.t-icon-like-o:before {
   content: 'e6d7';
 }
 
@@ -25,13 +25,12 @@ const input = `
 `;
 
 
-const getFullIconName = (name  =>  `.press-icon-plus-${name}:before`);
-
 test('exclude', async () => {
-  const result = await postcss([plugin({
+  const result = await postcss([postCssPluginRemoveSelector({
     list: [{
       file: 'abc',
-      exclude: ['invitation', 'like-o'].map(getFullIconName),
+      exclude: ['invitation', 'like-o'],
+      selectorPattern: /^\.t-icon-[\w-]+:before$/,
     }],
   })]).process(input, { from: 'abc' });
 
@@ -41,10 +40,11 @@ test('exclude', async () => {
 
 
 test('include', async () => {
-  const result = await postcss([plugin({
+  const result = await postcss([postCssPluginRemoveSelector({
     list: [{
       file: 'abc',
-      include: ['arrow-down', 'arrow-up'].map(getFullIconName),
+      include: ['arrow-down', 'arrow-up'],
+      selectorPattern: /^\.t-icon-[\w-]+:before$/,
     }],
   })]).process(input, { from: 'abc' });
 
@@ -54,11 +54,12 @@ test('include', async () => {
 
 
 test('include & exclude', async () => {
-  const result = await postcss([plugin({
+  const result = await postcss([postCssPluginRemoveSelector({
     list: [{
       file: 'abc',
-      include: ['arrow-down', 'arrow-up'].map(item => `.press-icon-plus-${item}:before`),
-      exclude: ['invitation', 'like-o', 'arrow-up'].map(getFullIconName),
+      include: ['arrow-down', 'arrow-up'],
+      exclude: ['invitation', 'like-o', 'arrow-up'],
+      selectorPattern: /^\.t-icon-[\w-]+:before$/,
     }],
   })]).process(input, { from: 'abc' });
 
@@ -68,12 +69,13 @@ test('include & exclude', async () => {
 
 
 test('file is regexp', async () => {
-  const result = await postcss([plugin({
+  const result = await postcss([postCssPluginRemoveSelector({
     list: [{
-      file: new RegExp('press-ui/press-icon-plus/css/icon.scss'),
-      include: ['arrow-down', 'arrow-up'].map(getFullIconName),
+      file: /tdesign\/uniapp\/dist\/icon/,
+      include: ['arrow-down', 'arrow-up'],
+      selectorPattern: /^\.t-icon-[\w-]+:before$/,
     }],
-  })]).process(input, { from: 'press-ui/press-icon-plus/css/icon.scss' });
+  })]).process(input, { from: 'tdesign/uniapp/dist/icon/icon.css' });
 
   expect(result.css).toMatchSnapshot();
   expect(result.warnings()).toHaveLength(0);
@@ -81,7 +83,34 @@ test('file is regexp', async () => {
 
 
 test('empty options', async () => {
-  const result = await postcss([plugin()]).process(input, { from: 'press-ui/press-icon-plus/css/icon.scss' });
+  const result = await postcss([postCssPluginRemoveSelector()]).process(input, { from: 'tdesign/uniapp/dist/icon/icon.css' });
+
+  expect(result.css).toMatchSnapshot();
+  expect(result.warnings()).toHaveLength(0);
+});
+
+
+test('no selectorPattern - should not remove non-icon rules', async () => {
+  const result = await postcss([postCssPluginRemoveSelector({
+    list: [{
+      file: 'abc',
+      include: ['arrow-down'],
+    }],
+  })]).process(input, { from: 'abc' });
+
+  expect(result.css).toMatchSnapshot();
+  expect(result.warnings()).toHaveLength(0);
+});
+
+
+test('file not matched - should not modify css', async () => {
+  const result = await postcss([postCssPluginRemoveSelector({
+    list: [{
+      file: 'not-matched-file',
+      exclude: ['arrow-down'],
+      selectorPattern: /^\.t-icon-[\w-]+:before$/,
+    }],
+  })]).process(input, { from: 'abc' });
 
   expect(result.css).toMatchSnapshot();
   expect(result.warnings()).toHaveLength(0);
