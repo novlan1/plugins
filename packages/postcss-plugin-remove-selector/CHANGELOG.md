@@ -1,3 +1,9 @@
+## <small>0.1.5 (2026-02-08)</small>
+
+* feat(remove-selector): add used/unused api ([68e1973](https://github.com/novlan1/plugins/commit/68e1973))
+
+
+
 ## <small>0.1.4 (2026-02-08)</small>
 
 * feat(remove-selector): add tdesignUsedIcon exports ([e9fbfc3](https://github.com/novlan1/plugins/commit/e9fbfc3))
