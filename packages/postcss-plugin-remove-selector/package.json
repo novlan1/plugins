@@ -1,6 +1,6 @@
 {
   "name": "@novlan/postcss-plugin-remove-selector",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "homepage": "https://novlan1.github.io/plugins/zh/postcss-plugin-remove-selector.html",
   "bugs": {
     "url": "https://github.com/novlan1/plugins/issues"
