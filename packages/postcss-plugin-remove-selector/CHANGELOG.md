@@ -1,3 +1,9 @@
+## <small>0.1.3 (2026-02-08)</small>
+
+* feat(remove-selector): support postcss@7 ([615fbd8](https://github.com/novlan1/plugins/commit/615fbd8))
+
+
+
 ## <small>0.1.2 (2026-02-08)</small>
 
 * feat(remove-selector): add tdesign-config exports ([ab9c52a](https://github.com/novlan1/plugins/commit/ab9c52a))
