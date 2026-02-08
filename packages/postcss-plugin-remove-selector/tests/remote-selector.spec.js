@@ -1,6 +1,6 @@
 const postcss = require('postcss');
 
-const { postCssPluginRemoveSelector } = require('../src/index');
+const { postcssPluginRemoveSelector } = require('../src/index');
 
 const input = `
 .t-icon-arrow-down:before {
@@ -25,11 +25,11 @@ const input = `
 `;
 
 
-test('exclude', async () => {
-  const result = await postcss([postCssPluginRemoveSelector({
+test('unused', async () => {
+  const result = await postcss([postcssPluginRemoveSelector({
     list: [{
       file: 'abc',
-      exclude: ['invitation', 'like-o'],
+      unused: ['invitation', 'like-o'],
       selectorPattern: /^\.t-icon-[\w-]+:before$/,
     }],
   })]).process(input, { from: 'abc' });
@@ -39,11 +39,11 @@ test('exclude', async () => {
 });
 
 
-test('include', async () => {
-  const result = await postcss([postCssPluginRemoveSelector({
+test('used', async () => {
+  const result = await postcss([postcssPluginRemoveSelector({
     list: [{
       file: 'abc',
-      include: ['arrow-down', 'arrow-up'],
+      used: ['arrow-down', 'arrow-up'],
       selectorPattern: /^\.t-icon-[\w-]+:before$/,
     }],
   })]).process(input, { from: 'abc' });
@@ -53,12 +53,12 @@ test('include', async () => {
 });
 
 
-test('include & exclude', async () => {
-  const result = await postcss([postCssPluginRemoveSelector({
+test('used & unused', async () => {
+  const result = await postcss([postcssPluginRemoveSelector({
     list: [{
       file: 'abc',
-      include: ['arrow-down', 'arrow-up'],
-      exclude: ['invitation', 'like-o', 'arrow-up'],
+      used: ['arrow-down', 'arrow-up'],
+      unused: ['invitation', 'like-o', 'arrow-up'],
       selectorPattern: /^\.t-icon-[\w-]+:before$/,
     }],
   })]).process(input, { from: 'abc' });
@@ -69,10 +69,10 @@ test('include & exclude', async () => {
 
 
 test('file is regexp', async () => {
-  const result = await postcss([postCssPluginRemoveSelector({
+  const result = await postcss([postcssPluginRemoveSelector({
     list: [{
       file: /tdesign\/uniapp\/dist\/icon/,
-      include: ['arrow-down', 'arrow-up'],
+      used: ['arrow-down', 'arrow-up'],
       selectorPattern: /^\.t-icon-[\w-]+:before$/,
     }],
   })]).process(input, { from: 'tdesign/uniapp/dist/icon/icon.css' });
@@ -83,7 +83,7 @@ test('file is regexp', async () => {
 
 
 test('empty options', async () => {
-  const result = await postcss([postCssPluginRemoveSelector()]).process(input, { from: 'tdesign/uniapp/dist/icon/icon.css' });
+  const result = await postcss([postcssPluginRemoveSelector()]).process(input, { from: 'tdesign/uniapp/dist/icon/icon.css' });
 
   expect(result.css).toMatchSnapshot();
   expect(result.warnings()).toHaveLength(0);
@@ -91,10 +91,10 @@ test('empty options', async () => {
 
 
 test('no selectorPattern - should not remove non-icon rules', async () => {
-  const result = await postcss([postCssPluginRemoveSelector({
+  const result = await postcss([postcssPluginRemoveSelector({
     list: [{
       file: 'abc',
-      include: ['arrow-down'],
+      used: ['arrow-down'],
     }],
   })]).process(input, { from: 'abc' });
 
@@ -104,10 +104,39 @@ test('no selectorPattern - should not remove non-icon rules', async () => {
 
 
 test('file not matched - should not modify css', async () => {
-  const result = await postcss([postCssPluginRemoveSelector({
+  const result = await postcss([postcssPluginRemoveSelector({
     list: [{
       file: 'not-matched-file',
-      exclude: ['arrow-down'],
+      unused: ['arrow-down'],
+      selectorPattern: /^\.t-icon-[\w-]+:before$/,
+    }],
+  })]).process(input, { from: 'abc' });
+
+  expect(result.css).toMatchSnapshot();
+  expect(result.warnings()).toHaveLength(0);
+});
+
+test('customUsed - should append to used list', async () => {
+  const result = await postcss([postcssPluginRemoveSelector({
+    list: [{
+      file: 'abc',
+      used: ['arrow-down'],
+      customUsed: ['arrow-up'],
+      selectorPattern: /^\.t-icon-[\w-]+:before$/,
+    }],
+  })]).process(input, { from: 'abc' });
+
+  expect(result.css).toMatchSnapshot();
+  expect(result.warnings()).toHaveLength(0);
+});
+
+
+test('customUnused - should append to unused list', async () => {
+  const result = await postcss([postcssPluginRemoveSelector({
+    list: [{
+      file: 'abc',
+      unused: ['invitation'],
+      customUnused: ['like-o'],
       selectorPattern: /^\.t-icon-[\w-]+:before$/,
     }],
   })]).process(input, { from: 'abc' });
@@ -119,11 +148,11 @@ test('file not matched - should not modify css', async () => {
 
 test('postcss7 fallback - should work with postcss.plugin style', async () => {
   // 当 postcss.plugin 可用时，postcss7 属性应该被设置
-  if (postCssPluginRemoveSelector.postcss7) {
-    const plugin = postCssPluginRemoveSelector.postcss7({
+  if (postcssPluginRemoveSelector.postcss7) {
+    const plugin = postcssPluginRemoveSelector.postcss7({
       list: [{
         file: 'abc',
-        exclude: ['invitation', 'like-o'],
+        unused: ['invitation', 'like-o'],
         selectorPattern: /^\.t-icon-[\w-]+:before$/,
       }],
     });

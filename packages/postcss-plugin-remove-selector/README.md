@@ -23,11 +23,47 @@
 pnpm add @novlan/postcss-plugin-remove-selector -D
 ```
 
-在 `vite.config.ts` 中使用：
+### 简化模式（推荐）
+
+通过 `mode` 指定预设，只需关注 `used`/`unused`，无需手动配置 `file` 和 `selectorPattern`：
 
 ```ts
 import { defineConfig } from 'vite';
-import { postCssPluginRemoveSelector } from '@novlan/postcss-plugin-remove-selector';
+import { postcssPluginRemoveSelector } from '@novlan/postcss-plugin-remove-selector';
+
+export default defineConfig({
+  css: {
+    postcss: {
+      plugins: [
+        postcssPluginRemoveSelector({
+          mode: 'tdesign',
+          used: ['home', 'chat', 'user', 'add', 'search', 'close'],
+        }),
+      ],
+    },
+  },
+});
+```
+
+使用 `customUsed` / `customUnused` 可在预设基础上增量追加，不会覆盖预设中已有的列表：
+
+```ts
+postcssPluginRemoveSelector({
+  mode: 'tdesign',
+  // 在 tdesign 预设默认的 used 列表上，额外追加 'star' 和 'heart'
+  customUsed: ['star', 'heart'],
+  // 从结果中额外移除 'loading'
+  customUnused: ['loading'],
+})
+```
+
+### 标准模式
+
+通过 `list` 数组传入完整配置，适用于需要匹配多个文件的复杂场景：
+
+```ts
+import { defineConfig } from 'vite';
+import { postcssPluginRemoveSelector } from '@novlan/postcss-plugin-remove-selector';
 import {
   TDESIGN_ICON_REMOVE_SELECTOR
 } from '@novlan/postcss-plugin-remove-selector/lib/tdesign-uniapp-icon';
@@ -36,7 +72,7 @@ import {
 export default defineConfig({
   css: {
     postcss: {
-      plugins: [postCssPluginRemoveSelector(TDESIGN_ICON_REMOVE_SELECTOR)],
+      plugins: [postcssPluginRemoveSelector(TDESIGN_ICON_REMOVE_SELECTOR)],
     },
   },
 });
@@ -44,7 +80,24 @@ export default defineConfig({
 
 ## 3. 类型
 
-### Options
+插件支持两种配置方式，传入 `SimpleOptions`（简化模式）或 `Options`（标准模式）均可。
+
+### SimpleOptions（简化模式）
+
+| 属性 | 类型 | 是否必填 | 说明 |
+| --- | --- | --- | --- |
+| `mode` | `'tdesign'` | 否 | 预设模式，设置后自动使用对应的 `file` 和 `selectorPattern` 默认值 |
+| `file` | `RegExp \| string` | 否 | 文件匹配规则。使用 `mode` 时可省略 |
+| `used` | `string[]` | 否 | 正在使用的图标名称列表，这些图标会被保留 |
+| `unused` | `string[]` | 否 | 未使用的图标名称列表，这些图标会被移除 |
+| `customUsed` | `string[]` | 否 | 增量追加到 `used` 列表（不覆盖预设或已有的 `used`） |
+| `customUnused` | `string[]` | 否 | 增量追加到 `unused` 列表（不覆盖预设或已有的 `unused`） |
+| `selectorPattern` | `RegExp` | 否 | 选择器匹配模式。使用 `mode` 时可省略 |
+| `debug` | `boolean` | 否 | 是否开启调试模式 |
+
+> `mode` 和 `file` 至少需要指定一个。当 `mode` 和 `file`/`selectorPattern` 同时指定时，`file`/`selectorPattern` 优先。
+
+### Options（标准模式）
 
 | 属性 | 类型 | 是否必填 | 说明 |
 | --- | --- | --- | --- |
@@ -56,9 +109,17 @@ export default defineConfig({
 | 属性 | 类型 | 是否必填 | 说明 |
 | --- | --- | --- | --- |
 | `file` | `RegExp \| string` | 是 | 文件匹配规则，可以是字符串或正则表达式 |
-| `include` | `string[]` | 否 | 需要保留的选择器列表（图标名称） |
-| `exclude` | `string[]` | 否 | 需要移除的选择器列表（图标名称） |
+| `used` | `string[]` | 否 | 正在使用的图标名称列表，这些图标会被保留 |
+| `unused` | `string[]` | 否 | 未使用的图标名称列表，这些图标会被移除 |
+| `customUsed` | `string[]` | 否 | 增量追加到 `used` 列表（不覆盖已有的 `used`） |
+| `customUnused` | `string[]` | 否 | 增量追加到 `unused` 列表（不覆盖已有的 `unused`） |
 | `selectorPattern` | `RegExp` | 否 | 选择器匹配模式，只处理匹配该模式的选择器 |
+
+### 内置预设
+
+| mode | 说明 | 默认 file | 默认 selectorPattern |
+| --- | --- | --- | --- |
+| `tdesign` | TDesign UniApp 图标减包 | `/[@/]tdesign[/]uniapp[/]dist[/]icon[/]icon\.[css\|vue]/` | `/^\.t-icon-[\w-]+:before$/` |
 
 ## 4. 更新日志
 

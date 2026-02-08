@@ -30,7 +30,7 @@ export function extractIconName(selector: string): string | null {
  * @param options 配置项
  */
 export function shouldRemoveRule(options: ShouldRemoveRuleOptions): boolean {
-  const { selectorPattern, include, exclude, selector } = options;
+  const { selectorPattern, used, unused, selector } = options;
 
   // 如果配置了 selectorPattern，只处理匹配的选择器
   if (selectorPattern && !selectorPattern.test(selector)) {
@@ -40,13 +40,13 @@ export function shouldRemoveRule(options: ShouldRemoveRuleOptions): boolean {
   // 提取图标名称进行精确匹配
   const iconName = extractIconName(selector);
 
-  // 如果有 include 列表，只保留 include 中的图标
-  if (include.length) {
-    return !include.includes(iconName || '');
+  // 如果有 used 列表，只保留 used 中的图标
+  if (used.length) {
+    return !used.includes(iconName || '');
   }
-  // 如果有 exclude 列表，移除 exclude 中的图标
-  if (exclude.length) {
-    return exclude.includes(iconName || '');
+  // 如果有 unused 列表，移除 unused 中的图标
+  if (unused.length) {
+    return unused.includes(iconName || '');
   }
   return false;
 }

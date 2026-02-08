@@ -1,5 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`customUnused - should append to unused list 1`] = `
+"
+.t-icon-arrow-down:before {
+  content: 'e65e';
+}
+
+.t-icon-arrow-up:before {
+  content: 'e65f';
+}
+
+#someId {
+  color: red;
+}
+"
+`;
+
+exports[`customUsed - should append to used list 1`] = `
+"
+.t-icon-arrow-down:before {
+  content: 'e65e';
+}
+
+.t-icon-arrow-up:before {
+  content: 'e65f';
+}
+
+#someId {
+  color: red;
+}
+"
+`;
+
 exports[`empty options 1`] = `
 "
 .t-icon-arrow-down:before {
@@ -16,22 +48,6 @@ exports[`empty options 1`] = `
 
 .t-icon-like-o:before {
   content: 'e6d7';
-}
-
-#someId {
-  color: red;
-}
-"
-`;
-
-exports[`exclude 1`] = `
-"
-.t-icon-arrow-down:before {
-  content: 'e65e';
-}
-
-.t-icon-arrow-up:before {
-  content: 'e65f';
 }
 
 #someId {
@@ -80,38 +96,6 @@ exports[`file not matched - should not modify css 1`] = `
 "
 `;
 
-exports[`include & exclude 1`] = `
-"
-.t-icon-arrow-down:before {
-  content: 'e65e';
-}
-
-.t-icon-arrow-up:before {
-  content: 'e65f';
-}
-
-#someId {
-  color: red;
-}
-"
-`;
-
-exports[`include 1`] = `
-"
-.t-icon-arrow-down:before {
-  content: 'e65e';
-}
-
-.t-icon-arrow-up:before {
-  content: 'e65f';
-}
-
-#someId {
-  color: red;
-}
-"
-`;
-
 exports[`no selectorPattern - should not remove non-icon rules 1`] = `
 "
 .t-icon-arrow-down:before {
@@ -121,6 +105,54 @@ exports[`no selectorPattern - should not remove non-icon rules 1`] = `
 `;
 
 exports[`postcss7 fallback - should work with postcss.plugin style 1`] = `
+"
+.t-icon-arrow-down:before {
+  content: 'e65e';
+}
+
+.t-icon-arrow-up:before {
+  content: 'e65f';
+}
+
+#someId {
+  color: red;
+}
+"
+`;
+
+exports[`unused 1`] = `
+"
+.t-icon-arrow-down:before {
+  content: 'e65e';
+}
+
+.t-icon-arrow-up:before {
+  content: 'e65f';
+}
+
+#someId {
+  color: red;
+}
+"
+`;
+
+exports[`used & unused 1`] = `
+"
+.t-icon-arrow-down:before {
+  content: 'e65e';
+}
+
+.t-icon-arrow-up:before {
+  content: 'e65f';
+}
+
+#someId {
+  color: red;
+}
+"
+`;
+
+exports[`used 1`] = `
 "
 .t-icon-arrow-down:before {
   content: 'e65e';

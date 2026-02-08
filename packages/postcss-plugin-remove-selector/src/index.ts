@@ -1,4 +1,5 @@
 export * from './plugin';
 export * from './tdesign-uniapp-icon';
+export * from './presets';
 
-export { postCssPluginRemoveSelector as default } from './plugin';
+export { postcssPluginRemoveSelector as default } from './plugin';
