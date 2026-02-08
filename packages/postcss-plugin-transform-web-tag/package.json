@@ -1,0 +1,27 @@
+{
+  "name": "@plugin-light/postcss-plugin-transform-web-tag",
+  "version": "1.0.0",
+  "homepage": "https://novlan1.github.io/docs/plugin-light/zh/postcss-plugin-transform-web-tag.html",
+  "bugs": {
+    "url": "https://github.com/novlan1/plugin-light/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/novlan1/plugin-light"
+  },
+  "license": "MIT",
+  "author": "novlan1",
+  "main": "./lib/index",
+  "files": [
+    "lib/"
+  ],
+  "scripts": {
+    "build": "rm -rf lib && node script/build",
+    "bump": "node ../../script/monorepo/version-simple $PWD",
+    "changelog": "node ../../script/monorepo/changelog $PWD",
+    "release": "node ../../script/monorepo/release $PWD"
+  },
+  "dependencies": {
+    "@plugin-light/shared": "workspace:^"
+  }
+}

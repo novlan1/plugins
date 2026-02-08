@@ -1,0 +1,29 @@
+{
+  "name": "@plugin-light/postcss-plugin-remove-selector",
+  "version": "1.0.0",
+  "homepage": "https://novlan1.github.io/docs/plugin-light/zh/postcss-plugin-remove-selector.html",
+  "bugs": {
+    "url": "https://github.com/novlan1/plugin-light/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/novlan1/plugin-light"
+  },
+  "license": "MIT",
+  "author": "novlan1",
+  "main": "./lib/index",
+  "types": "./lib/index.d.ts",
+  "files": [
+    "lib/"
+  ],
+  "scripts": {
+    "build": "rm -rf lib && rollup -c",
+    "bump": "node ../../script/monorepo/version-simple $PWD",
+    "changelog": "node ../../script/monorepo/changelog $PWD",
+    "release": "node ../../script/monorepo/release $PWD"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "postcss": "^8.0.0"
+  }
+}

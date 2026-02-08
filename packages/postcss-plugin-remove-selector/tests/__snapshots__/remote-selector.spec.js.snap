@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`empty options 1`] = `
+"
+.press-icon-plus-arrow-down:before {
+  content: 'e65e';
+}
+
+.press-icon-plus-arrow-up:before {
+  content: 'e65f';
+}
+
+.press-icon-plus-invitation:before {
+  content: 'e6d6';
+}
+
+.press-icon-plus-like-o:before {
+  content: 'e6d7';
+}
+
+#someId {
+  color: red;
+}
+"
+`;
+
+exports[`exclude 1`] = `
+"
+.press-icon-plus-arrow-down:before {
+  content: 'e65e';
+}
+
+.press-icon-plus-arrow-up:before {
+  content: 'e65f';
+}
+
+#someId {
+  color: red;
+}
+"
+`;
+
+exports[`file is regexp 1`] = `
+"
+.press-icon-plus-arrow-down:before {
+  content: 'e65e';
+}
+
+.press-icon-plus-arrow-up:before {
+  content: 'e65f';
+}
+"
+`;
+
+exports[`include & exclude 1`] = `
+"
+.press-icon-plus-arrow-down:before {
+  content: 'e65e';
+}
+
+.press-icon-plus-arrow-up:before {
+  content: 'e65f';
+}
+
+#someId {
+  color: red;
+}
+"
+`;
+
+exports[`include 1`] = `
+"
+.press-icon-plus-arrow-down:before {
+  content: 'e65e';
+}
+
+.press-icon-plus-arrow-up:before {
+  content: 'e65f';
+}
+"
+`;

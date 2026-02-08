@@ -1,0 +1,91 @@
+{
+  "sidebar": [
+    {
+      "text": "项目配置",
+      "collapsed": false,
+      "items": []
+    },
+    {
+      "text": "ESLint",
+      "collapsed": false,
+      "items": []
+    },
+    {
+      "text": "StyleLint",
+      "collapsed": false,
+      "items": []
+    },
+    {
+      "text": "运行时",
+      "collapsed": false,
+      "items": []
+    },
+    {
+      "text": "PixUI",
+      "collapsed": false,
+      "items": []
+    },
+    {
+      "text": "脚手架",
+      "collapsed": false,
+      "items": []
+    },
+    {
+      "text": "底层依赖",
+      "collapsed": false,
+      "items": []
+    },
+    {
+      "text": "Vite 插件",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "DispatchScript 脚本分发",
+          "link": "/zh/vite-plugin-dispatch-script.md"
+        },
+        {
+          "text": "DispatchVue 组件分发",
+          "link": "/zh/vite-plugin-dispatch-vue.md"
+        }
+      ]
+    },
+    {
+      "text": "Webpack 插件",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "DispatchScript 脚本分发",
+          "link": "/zh/webpack-plugin-dispatch-script.md"
+        },
+        {
+          "text": "DispatchVue 组件分发",
+          "link": "/zh/webpack-plugin-dispatch-vue.md"
+        }
+      ]
+    },
+    {
+      "text": "Webpack Loader",
+      "collapsed": true,
+      "items": []
+    },
+    {
+      "text": "Postcss 插件",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "RemoveSelector 移除选择器",
+          "link": "/zh/postcss-plugin-remove-selector.md"
+        },
+        {
+          "text": "TransformWebTag 转换 Web 标签",
+          "link": "/zh/postcss-plugin-transform-web-tag.md"
+        }
+      ]
+    },
+    {
+      "text": "MCP",
+      "collapsed": true,
+      "items": []
+    }
+  ]
+}

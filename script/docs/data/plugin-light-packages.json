@@ -1,0 +1,10 @@
+{
+  "data": [
+    "@plugin-light/postcss-plugin-remove-selector",
+    "@plugin-light/postcss-plugin-transform-web-tag",
+    "@plugin-light/vite-plugin-dispatch-script",
+    "@plugin-light/vite-plugin-dispatch-vue",
+    "@plugin-light/webpack-plugin-dispatch-script",
+    "@plugin-light/webpack-plugin-dispatch-vue"
+  ]
+}

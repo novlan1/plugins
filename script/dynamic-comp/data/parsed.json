@@ -1,0 +1,738 @@
+{
+  "pages": [
+    {
+      "path": "views/entrance/entrance",
+      "name": "entrance",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    }
+  ],
+  "globalStyle": {
+    "pageOrientation": "portrait",
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "backgroundColor": "#FFFFFF",
+    "backgroundColorTop": "#F4F5F6",
+    "backgroundColorBottom": "#F4F5F6",
+    "mp-360": {
+      "navigationStyle": "custom"
+    },
+    "h5": {
+      "maxWidth": 1190,
+      "navigationBarTextStyle": "black",
+      "navigationBarBackgroundColor": "#F1F1F1"
+    },
+    "mp-weixin": {
+      "usingComponents": {}
+    }
+  },
+  "subPackages": [
+    {
+      "root": "views/index",
+      "pages": [
+        {
+          "path": "index",
+          "name": "home",
+          "aliasPath": "/home",
+          "style": {
+            "navigationStyle": "custom"
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": [
+              "/home"
+            ]
+          }
+        },
+        {
+          "path": "debug",
+          "name": "debug",
+          "aliasPath": "/debug",
+          "style": {
+            "navigationBarTitleText": "Debug"
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": [
+              "/debug"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "root": "views/match",
+      "pages": [
+        {
+          "path": "single-match-detail",
+          "name": "single-match-detail",
+          "aliasPath": "/single-match-detail",
+          "style": {
+            "navigationBarTitleText": "赛事详情"
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": [
+              "/single-match-detail"
+            ]
+          }
+        },
+        {
+          "path": "map",
+          "name": "map",
+          "aliasPath": "/map",
+          "style": {
+            "navigationBarTitleText": "查看地图"
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": [
+              "/map"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "root": "views/match-list",
+      "pages": [
+        {
+          "path": "match-list",
+          "name": "match-list",
+          "aliasPath": "/match-list",
+          "style": {
+            "navigationBarTitleText": "赛事列表"
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": [
+              "/match-list"
+            ]
+          }
+        },
+        {
+          "path": "match-group",
+          "name": "match-group",
+          "aliasPath": "/match-group",
+          "style": {
+            "navigationBarTitleText": "比赛分组"
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": [
+              "/match-group"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "root": "views/match-rule",
+      "pages": [
+        {
+          "path": "match-rule-page",
+          "name": "match-rule-page",
+          "aliasPath": "/match-rule",
+          "style": {
+            "navigationBarTitleText": "赛事规则"
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": [
+              "/match-rule"
+            ]
+          }
+        },
+        {
+          "path": "match-admin-apply",
+          "name": "match-admin-apply",
+          "aliasPath": "/match-admin-apply",
+          "style": {
+            "navigationBarTitleText": "赛事管理员申请"
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": [
+              "/match-admin-apply"
+            ]
+          }
+        },
+        {
+          "path": "match-ob-register",
+          "name": "match-ob-register",
+          "aliasPath": "/match-ob-register",
+          "style": {
+            "navigationBarTitleText": "裁判申请"
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": [
+              "/match-ob-register"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "root": "views/selfhosted",
+      "pages": [
+        {
+          "path": "index",
+          "name": "selfhosted",
+          "aliasPath": "/selfhosted",
+          "style": {
+            "navigationBarTitleText": "申办赛事"
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": [
+              "/selfhosted"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "root": "views/create-vert",
+      "pages": [
+        {
+          "path": "index",
+          "name": "create-vert",
+          "aliasPath": "/create-vert",
+          "style": {
+            "navigationBarTitleText": "创建赛事"
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": [
+              "/create-vert"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "root": "views/sche-manage-vert",
+      "pages": [
+        {
+          "path": "sche-manage-vert",
+          "name": "sche-manage-vert",
+          "aliasPath": "/sche-manage-vert",
+          "style": {
+            "navigationBarTitleText": "赛程管理"
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": [
+              "/sche-manage-vert"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "root": "views/sche-manage-vert-team",
+      "pages": [
+        {
+          "path": "sche-manage-vert-team",
+          "name": "sche-manage-vert-team",
+          "aliasPath": "/sche-manage-vert-team",
+          "style": {
+            "navigationBarTitleText": "队伍"
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": [
+              "/sche-manage-vert-team"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "root": "views/post-match-detail",
+      "pages": [
+        {
+          "path": "post-match-detail",
+          "name": "post-match-detail",
+          "aliasPath": "/post-match-detail",
+          "style": {
+            "navigationBarTitleText": "战后详细数据"
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": [
+              "/post-match-detail"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "root": "views/team",
+      "pages": [
+        {
+          "path": "team-zone",
+          "name": "team-zone",
+          "aliasPath": "/team-zone",
+          "style": {
+            "navigationBarTitleText": "队伍主页"
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": [
+              "/team-zone"
+            ]
+          }
+        },
+        {
+          "path": "team-apply",
+          "name": "team-apply",
+          "aliasPath": "/team-apply",
+          "style": {
+            "navigationBarTitleText": "入队申请"
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": [
+              "/team-apply"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "root": "views/streaming",
+      "pages": [
+        {
+          "path": "streaming",
+          "name": "streaming",
+          "aliasPath": "/streaming",
+          "style": {
+            "navigationBarTitleText": "直播列表"
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": [
+              "/streaming"
+            ]
+          }
+        },
+        {
+          "path": "live",
+          "name": "live",
+          "aliasPath": "/live",
+          "style": {
+            "navigationBarTitleText": "直播间"
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": [
+              "/live"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "root": "views/invite-join",
+      "pages": [
+        {
+          "path": "index",
+          "name": "invite-join",
+          "aliasPath": "/invite-join",
+          "style": {
+            "navigationBarTitleText": "邀请报名"
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": [
+              "/invite-join"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "root": "views/invite-match",
+      "pages": [
+        {
+          "path": "invite-match",
+          "name": "invite-match",
+          "aliasPath": "/invite-match",
+          "style": {
+            "navigationBarTitleText": "邀请报名"
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": [
+              "/invite-match"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "root": "views/webview",
+      "pages": [
+        {
+          "path": "webview",
+          "name": "webview",
+          "aliasPath": "/webview",
+          "style": {
+            "navigationBarTitleText": ""
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": [
+              "/webview"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "root": "views/tim-wx",
+      "pages": [
+        {
+          "path": "index",
+          "name": "tim-wx",
+          "aliasPath": "/tim-wx",
+          "style": {
+            "navigationBarTitleText": ""
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": [
+              "/tim-wx"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "root": "views/test-page",
+      "pages": [
+        {
+          "path": "join-game/index",
+          "name": "join-game",
+          "aliasPath": "/join-game",
+          "style": {
+            "navigationBarTitleText": ""
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": [
+              "/join-game"
+            ]
+          }
+        },
+        {
+          "path": "white-list/index",
+          "name": "test-whitelist",
+          "aliasPath": "/test-whitelist",
+          "style": {},
+          "meta": {
+            "rawPath": [
+              "/test-whitelist"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "root": "views/battle-room",
+      "pages": [
+        {
+          "path": "index",
+          "name": "battle-room",
+          "aliasPath": "/battle-room",
+          "style": {
+            "navigationBarTitleText": ""
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": [
+              "/battle-room"
+            ]
+          }
+        },
+        {
+          "path": "quick-room",
+          "name": "quick-room",
+          "aliasPath": "/quick-room",
+          "style": {
+            "navigationBarTitleText": "快速赛"
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": [
+              "/quick-room"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "root": "views/launch-game",
+      "pages": [
+        {
+          "path": "launch-game",
+          "name": "launch-game",
+          "aliasPath": "/launch-game",
+          "style": {
+            "navigationBarTitleText": ""
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": [
+              "/launch-game"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "root": "views/web-container",
+      "pages": [
+        {
+          "path": "index",
+          "name": "web-container",
+          "aliasPath": "/web-container",
+          "style": {
+            "navigationBarTitleText": ""
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": [
+              "/web-container"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "root": "views/search",
+      "pages": [
+        {
+          "path": "search",
+          "name": "search",
+          "aliasPath": "/search",
+          "style": {
+            "navigationBarTitleText": ""
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": [
+              "/search"
+            ]
+          }
+        },
+        {
+          "path": "history",
+          "name": "history",
+          "aliasPath": "/history",
+          "style": {
+            "navigationBarTitleText": "全部赛事"
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": [
+              "/history"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "root": "views/create-quick",
+      "pages": [
+        {
+          "path": "index",
+          "name": "create-quick",
+          "aliasPath": "/create-quick",
+          "style": {
+            "navigationBarTitleText": ""
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": [
+              "/create-quick"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "root": "views/manager",
+      "pages": [
+        {
+          "path": "manager",
+          "name": "manager",
+          "aliasPath": "/manager",
+          "style": {
+            "navigationBarTitleText": ""
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": [
+              "/manager"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "root": "views/manager-match",
+      "pages": [
+        {
+          "path": "manager-match",
+          "name": "manager-match",
+          "aliasPath": "/manager-match",
+          "style": {
+            "navigationBarTitleText": ""
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": [
+              "/manager-match"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "root": "views/gp-rank",
+      "pages": [
+        {
+          "path": "rank/index",
+          "name": "graderank",
+          "aliasPath": "/graderank",
+          "style": {
+            "navigationBarTitleText": ""
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": [
+              "/graderank"
+            ]
+          }
+        },
+        {
+          "path": "record/index",
+          "name": "record",
+          "aliasPath": "/record",
+          "style": {
+            "navigationBarTitleText": ""
+          },
+          "meta": {
+            "rawPath": [
+              "/record"
+            ]
+          }
+        },
+        {
+          "path": "top100/index",
+          "name": "top100",
+          "aliasPath": "/top100",
+          "style": {
+            "navigationBarTitleText": ""
+          },
+          "meta": {
+            "rawPath": [
+              "/top100"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "root": "views/setting",
+      "pages": [
+        {
+          "path": "setting",
+          "name": "setting",
+          "aliasPath": "/setting",
+          "style": {
+            "navigationBarTitleText": ""
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": [
+              "/setting"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "root": "views/round-setting",
+      "pages": [
+        {
+          "path": "index",
+          "name": "round-setting",
+          "style": {
+            "navigationBarTitleText": ""
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": []
+          }
+        }
+      ]
+    },
+    {
+      "root": "views/sche-search",
+      "pages": [
+        {
+          "path": "index",
+          "name": "sche-search",
+          "style": {
+            "navigationBarTitleText": ""
+          },
+          "meta": {
+            "useDefaultTitle": false,
+            "keepPosition": true,
+            "rawPath": []
+          }
+        }
+      ]
+    }
+  ]
+}

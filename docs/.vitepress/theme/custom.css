@@ -1,0 +1,20 @@
+/* 徽章不换行 */
+p > img {
+  display: inline-block;
+  margin-right: 4px;
+}
+
+/* 隐藏徽章 */
+h1 + p[align=center] {
+  opacity: 0;
+  height: 6px;
+}
+
+
+@media (min-width: 960px) {
+  /* 首页 logo */
+  .image-container .image-src {
+    max-width: 200px;
+    max-height: 200px;
+  }
+}

@@ -1,0 +1,32 @@
+package-lock.json
+pnpm-lock.yaml
+node_modules
+.env.local
+/coverage/
+dist/
+lib/
+# docs/zh/
+docs/.vuepress/dist
+
+*.log
+/temp/
+.DS_Store
+/log
+
+tsconfig.tsbuildinfo
+.idea
+
+# 构建产物，忽略
+packages/ebus-light/types/
+packages/plugin-light-const/types/
+packages/pixui-polyfill/types
+packages/pixui-runtime/types
+packages/upload-mcp/types/
+packages/npm-publish-mcp/types/
+packages/mp-publish-mcp/types/
+
+
+docs/.vitepress/cache
+!packages/pixui-fetch/dist
+
+docs/docx/

@@ -1,0 +1,34 @@
+{
+  "name": "@plugin-light/webpack-plugin-dispatch-script",
+  "version": "1.0.0",
+  "homepage": "https://novlan1.github.io/docs/plugin-light/zh/webpack-plugin-dispatch-script.html",
+  "bugs": {
+    "url": "https://github.com/novlan1/plugin-light/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/novlan1/plugin-light"
+  },
+  "license": "MIT",
+  "author": "novlan1",
+  "main": "./lib/index",
+  "files": [
+    "lib/"
+  ],
+  "scripts": {
+    "build": "rm -rf lib && rollup -c",
+    "bump": "node ../../script/monorepo/version-simple $PWD",
+    "changelog": "node ../../script/monorepo/changelog $PWD",
+    "release": "node ../../script/monorepo/release $PWD"
+  },
+  "dependencies": {
+    "@plugin-light/shared": "workspace:^",
+    "@plugin-light/shared-vue2": "workspace:^",
+    "@plugin-light/webpack-plugin-add-common-vendor": "workspace:^",
+    "@plugin-light/webpack-plugin-dispatch-vue": "workspace:^",
+    "t-comm": "^3.0.22"
+  },
+  "devDependencies": {
+    "webpack": "^5.103.0"
+  }
+}

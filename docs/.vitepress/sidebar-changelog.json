@@ -1,0 +1,28 @@
+{
+  "sidebar": [
+    {
+      "text": "postcss-plugin-remove-selector",
+      "link": "/changelog/postcss-plugin-remove-selector.md"
+    },
+    {
+      "text": "postcss-plugin-transform-web-tag",
+      "link": "/changelog/postcss-plugin-transform-web-tag.md"
+    },
+    {
+      "text": "vite-plugin-dispatch-script",
+      "link": "/changelog/vite-plugin-dispatch-script.md"
+    },
+    {
+      "text": "vite-plugin-dispatch-vue",
+      "link": "/changelog/vite-plugin-dispatch-vue.md"
+    },
+    {
+      "text": "webpack-plugin-dispatch-script",
+      "link": "/changelog/webpack-plugin-dispatch-script.md"
+    },
+    {
+      "text": "webpack-plugin-dispatch-vue",
+      "link": "/changelog/webpack-plugin-dispatch-vue.md"
+    }
+  ]
+}
