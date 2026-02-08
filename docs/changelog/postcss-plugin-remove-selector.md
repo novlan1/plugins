@@ -1,5 +1,11 @@
 # postcss-plugin-remove-selector
 
+## <small>0.1.6 (2026-02-08)</small>
+
+* chore(remove-selector): add types ([b277e33](https://github.com/novlan1/plugins/commit/b277e33))
+
+
+
 ## <small>0.1.5 (2026-02-08)</small>
 
 * feat(remove-selector): add used/unused api ([68e1973](https://github.com/novlan1/plugins/commit/68e1973))
