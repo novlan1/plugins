@@ -63,6 +63,8 @@ const TDESIGN_USED_ICONS = [
   'check-circle-filled',
   'error-circle-filled',
   'loading',
+  'star',
+  'star-filled',
 ];
 
 
